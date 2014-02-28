@@ -1,0 +1,79 @@
+body {margin:0;padding:0;}
+
+// grid container is 960px, just pad the ID in production
+.container {max-width:600px;margin:0 auto;}
+
+// <ul>
+.post-dates {
+  margin:0;padding:0;list-style:none;
+
+  // <li>
+  .post-date {
+    width:17.5%;
+    height:72px;
+  }
+}
+
+// #CALENDAR_POST <article>
+///////////////////////////////////////////////////////
+#calendar_post {
+
+  &.hide {display:none;}
+  &.show {display:block;}
+
+  /* .POST-HEADER <header>
+  ================================================== */
+  .post-header {
+
+  }
+    .post-featured-image {
+      // #data-featured-img-url
+      img {}
+      
+    }
+
+    // &.icon.icon-calendar
+    .post-date {
+      span { }
+      // #data-date-month
+      span:first-child { }
+      // #data-date-day
+      span:last-child { }
+    }
+    // <h3> #data-title
+    .post-title {
+      
+    }
+
+    .post-social {
+
+    }
+
+  /* .POST-CONTENT
+  ================================================== */
+  .post-content {
+    
+  }
+    // <header>
+    .post-content-header {
+      
+    }
+      .post-author-avatar {
+        
+        // #data-author-img-url
+        img {}
+      }
+
+      label {}
+
+      // <h2> #data-author
+      .post-author {
+
+      }
+
+    // #data-content
+    .post-content-body {
+
+    }
+
+}
