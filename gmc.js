@@ -97,19 +97,40 @@ try {
 
             /* 300x600
             ================================================== */
-            if ( (gmc_widget_width == "300" && gmc_widget_height == "600") || gmc_widget_width == undefined ) {
+            if ( (gmc_widget_width == "300" && gmc_widget_height == "250") || gmc_widget_width == undefined ) {
               gmc_widget.style.width  = '300px';
-              gmc_widget.style.height = '600px';
+              gmc_widget.style.height = '250px';
 
 
             } 
 
             /* 350x250
             ================================================== */
-            if ( gmc_widget_width == "350" && gmc_widget_height == "250" ) {
+            if ( gmc_widget_width == "350" && gmc_widget_height == "350" ) {
               gmc_widget.style.width  = '350px';
-              gmc_widget.style.height = '250px';
+              gmc_widget.style.height = '350px';
 
+
+              // iFrame content
+              gmc_widget.contentWindow.document.write('<div id="gmc_widget">\
+                <div class="gmc_widget_inner gmc_widget_inner_small"> \
+                  <div class="gmc_logo"></div> \
+                  <div class="gmc_widget_text_content"> ' + JSON.stringify(data.site_info.widget_description).replace(/\"/g, "") + ' \
+                    <p style="color:#b7b7b7;font-size:12px;">* up to $250,000</p> \
+                    <div class="gmc_stat_box medium"><div class="gmc_stat_number">' + JSON.stringify(data.numbers.share_number).replace(/\"/g, "") + '</div><span>Actions taken to help every woman and every child lead healthy lives.</span></div> \
+                  </div> \
+                </div> \
+                <footer class="gmc_footer_medium"> \
+                  <div class="gmc_footer_buttons"> \
+                    <a href="http://globalmomschallenge.com/relay" target="_blank" class="gmc_button gmc_todays_post"> \
+                      <i class="icon icon-chat"></i> \
+                      See Today\'s Post</a> \
+                    <a href="' + JSON.stringify(data.site_info.learn_more_url).replace(/\"/g, "") + '" target="_blank" class="gmc_button gmc_learn_more"> \
+                      ' + JSON.stringify(data.site_info.learn_more_text).replace(/\"/g, "") + '</a> \
+                    <div style="clear:both;"></div> \
+                  </div> \
+                </footer> \
+                </div>');
               
             } 
 
@@ -123,6 +144,7 @@ try {
               gmc_widget.contentWindow.document.write('<div id="gmc_widget">\
                 <header class="gmc_header_medium"></header> \
                 <div class="gmc_widget_inner"> \
+                  <div class="gmc_logo"></div> \
                   <div class="gmc_widget_text_content"> ' + JSON.stringify(data.site_info.widget_description).replace(/\"/g, "") + ' \
                     <div class="gmc_stat_box medium"><div class="gmc_stat_number">' + JSON.stringify(data.numbers.share_number).replace(/\"/g, "") + '</div><span>Actions taken to help every woman and every child lead healthy lives.</span></div> \
                   </div> \
@@ -159,10 +181,10 @@ try {
                 </div> \
                 <footer> \
                   <a href="http://globalmomschallenge.com/relay" target="_blank" class="gmc_button gmc_todays_post"> \
-                    <img alt="GMC" class="gmc_icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAARCAYAAADZsVyDAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDoyMzJGOTJCNDk4MUUxMUUzQTM3MzgwOTMxRjUwRUM3NSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDoyMzJGOTJCNTk4MUUxMUUzQTM3MzgwOTMxRjUwRUM3NSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjIzMkY5MkIyOTgxRTExRTNBMzczODA5MzFGNTBFQzc1IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjIzMkY5MkIzOTgxRTExRTNBMzczODA5MzFGNTBFQzc1Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+5eGTLwAAAQRJREFUeNqkVIENgjAQBCboCGwgG9gNZARG0AmMEzhC3QA3QCYAJ2AE3KA+yT15myKFXnIpfPKX/v/1U2tt4kARS+KRmIv4i/gmPpMQTMKgIhq7jpF4Fnle8keBhC1ocJlF4XyHKKP+J2xsHLSoehbOMKgYnHA2xIqDGVwQA3ZOTzREzcJ9pHCLU+M0bLcqor8jnFE68ZybvXeAJfI7d6DSItcNgoNwgfFU8fPyisBHUaH8pZd6l8JKlDPi9goe1Y5HFcQHj2jHrzHFEirhxxZL5oMJF7DjxAP+9YJFH8TLnLu2THC7OqBNlW8JhbIQ7XFbMsqWpZ59vAe8v6c23KbAV4ABAMoYfgWVh3MpAAAAAElFTkSuQmCC"/> \
+                    <i class="icon icon-chat"></i> \
                     See Today\'s Post</a> \
                   <a href="' + JSON.stringify(data.site_info.learn_more_url).replace(/\"/g, "") + '" target="_blank" class="gmc_button gmc_learn_more"> \
-                    <img alt="GMC" class="gmc_icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAATCAYAAAByUDbMAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDoyMzJGOTJCMDk4MUUxMUUzQTM3MzgwOTMxRjUwRUM3NSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDoyMzJGOTJCMTk4MUUxMUUzQTM3MzgwOTMxRjUwRUM3NSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjIzMkY5MkFFOTgxRTExRTNBMzczODA5MzFGNTBFQzc1IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjIzMkY5MkFGOTgxRTExRTNBMzczODA5MzFGNTBFQzc1Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+m3G9mwAAAQNJREFUeNqsVAENgzAQLFWAgzEFYw6QwBzgYHOABCQgYXPQTQE4KA7AQfcl3+VTvgUyLrlA+t9L/6/9xBgjVlDgtwdO0Uwr5jEFPoCdWUIDa8xZ7PUXSuBINtt/hdTeehUTq5iT1CReM/GWiknSl1bsR4WckaABGpgxyRM2XmA8lHMFDhKVuaSeCMWQAu/Ozafh4ZtTmzC061kh/oetLJV4TA4dbe4G5DIWBJ52iM0GvMUxmMX6A4Rezs0s4BD7/gK5BX1OzYarERJTLuZegHVUYdMdboGRo7zbf/7leaNHme2wIyqPjSB308cVoYbraRKYtLbsEnghpQ/ADzrHTtyvAAMAgs48xR9deR8AAAAASUVORK5CYII="/> \
+                    <i class="icon icon-info"></i> \
                     ' + JSON.stringify(data.site_info.learn_more_text).replace(/\"/g, "") + '</a> \
                   <div class="gmc_site_link"><a href="http://globalmomschallenge.org" target="_blank">GLOBALMOMSCHALLENGE.ORG</a></div> \
                   <div class="gmc_notice">* up to $250,000</div> \
